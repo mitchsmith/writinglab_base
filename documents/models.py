@@ -28,7 +28,7 @@ class Document(models.Model):
 
 
     class Meta:
-        ordering = ['owner', 'original_filename', 'modified']
+        ordering = ['owner', 'original_filename', 'updated_at']
 
     def __repr__ (self):
         return '<Document %s>' % self.original_filename
