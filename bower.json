@@ -1,7 +1,7 @@
 {
   "name": "writinglab",
   "version": "0.0.0",
-  "homepage": "https://github.com/brwr/writinglab-django-angular-boilerplate",
+  "homepage": "https://github.com/brwr/writinglab",
   "license": "MIT",
   "ignore": [
     "**/.*",

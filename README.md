@@ -1,4 +1,4 @@
-# writinglab-django-angular-boilerplate
+# writinglab_base
 
 ## Installation
 
@@ -8,9 +8,9 @@
 
 * Fork this repository.
 * `$ mkproject writinglab-djangular`
-* `$ git clone git@github.com:<your username>/writinglab-django-angular-boilerplate.git ./`
+* `$ git clone git@github.com:<your username>/writinglab_base.git ./`
 * ~~`$ mkvirtualenv writinglab-djangular`~~
-* ~~`$ cd writinglab-django-angular-boilerplate/`~~
+* ~~`$ cd writinglab_base/`~~
 * `$ pip install -r requirements.txt`
 * ~~`$ npm install -g bower`~~
 * `$ sudo npm install -g bower`
