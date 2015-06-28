@@ -3,15 +3,18 @@ from writinglab.views import IndexView
 from rest_framework_nested import routers
 from authentication.views import AccountViewSet, LoginView, LogoutView
 from posts.views import AccountPostsViewSet, PostViewSet
+from documents.views import AccountDocumentsViewSet, DocumentViewSet
 
 router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
 router.register(r'posts', PostViewSet)
+router.register(r'documents', DocumentViewSet)
 
 accounts_router = routers.NestedSimpleRouter(
     router, r'accounts', lookup='account'
 )
 accounts_router.register(r'posts', AccountPostsViewSet)
+accounts_router.register(r'documents', AccountDocumentsViewSet)
 
 urlpatterns = patterns(
     '',

@@ -20,6 +20,7 @@
     "ngDialog": "~0.3.3",
     "underscore": "~1.7.0",
     "webodf.js": "0.5.7",
-    "wodo.texteditor": "~0.5.7"
+    "wodo.texteditor": "~0.5.7",
+    "angular-upload": "~1.0.12"
   }
 }

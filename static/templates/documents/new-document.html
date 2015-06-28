@@ -1,0 +1,27 @@
+<form role="form" ng-submit="vm.submit()">
+  <div class="form-group">
+    <label for="document__original_filename">New Document</label>
+    <!-- <textarea class="form-control" 
+              id="document__content" 
+              rows="3" 
+              placeholder="ex. This is my first time documenting on Not Google Plus!" 
+              ng-model="vm.content">
+    </textarea> -->
+    <input type"text" class="form-control"
+      id="document__original_filename"
+      placeholder="filename.odt"
+      ng-model="vm.original_filename">
+
+    <label for="document__odtfile">Choose a file to upload</label>
+    <input type"file" class="form-control"
+      id="document__odtfile"
+      placeholder="Choose a file"
+      ng-model="vm.odtfile">    
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">
+      Upload
+    </button>
+  </div>
+</form>

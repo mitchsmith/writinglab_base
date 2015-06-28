@@ -9,16 +9,17 @@
     .module('writinglab.layout.controllers')
     .controller('IndexController', IndexController);
 
-  IndexController.$inject = ['$scope', 'Authentication', 'Posts', 'Snackbar'];
+  IndexController.$inject = ['$scope', 'Authentication', 'Posts', 'Documents', 'Snackbar', 'upload'];
 
   /**
   * @namespace IndexController
   */
-  function IndexController($scope, Authentication, Posts, Snackbar) {
+  function IndexController($scope, Authentication, Posts, Documents, Snackbar, upload) {
     var vm = this;
 
     vm.isAuthenticated = Authentication.isAuthenticated();
     vm.posts = [];
+    vm.documents = []
 
     activate();
 
@@ -29,6 +30,8 @@
     */
     function activate() {
       Posts.all().then(postsSuccessFn, postsErrorFn);
+
+      Documents.all().then(documentsSuccessFn, documentsErrorFn);
 
       /** Listener for post.created **/
       $scope.$on('post.created', function (event, post) {
@@ -54,6 +57,24 @@
       * @desc Show snackbar with error
       */
       function postsErrorFn(data, status, headers, config) {
+        Snackbar.error(data.error);
+      }
+
+
+      /**
+      * @name documentsSuccessFn
+      * @desc Update documents array on view
+      */
+      function documentsSuccessFn(data, status, headers, config) {
+        vm.documents = data.data;
+      }
+
+
+      /**
+      * @name documentsErrorFn
+      * @desc Show snackbar with error
+      */
+      function documentsErrorFn(data, status, headers, config) {
         Snackbar.error(data.error);
       }
     }

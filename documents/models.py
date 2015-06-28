@@ -19,7 +19,7 @@ def get_uploaded_filename(instance, filename):
 
 
 class Document(models.Model):
-    owner             = models.ForeignKey(Account, related_name='parent_owner', help_text='The author of this resoponse')
+    owner             = models.ForeignKey(Account, related_name='parent_owner', help_text='The author of this document')
     original_filename = models.CharField('original filename', max_length=255, blank=True, null=True)
     slug              = AutoSlugField(populate_from=get_populate_from, unique_with='owner__username')
     odtfile           = models.FileField(upload_to=get_uploaded_filename)

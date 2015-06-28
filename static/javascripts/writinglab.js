@@ -5,8 +5,10 @@ angular
     'writinglab.authentication',
     'writinglab.layout',
     'writinglab.posts',
+    'writinglab.documents',
     'writinglab.utils',
-    'writinglab.profiles'
+    'writinglab.profiles',
+    'lr.upload'
   ]);
 
 angular

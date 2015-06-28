@@ -1,0 +1,4 @@
+curl -v -c cookies.txt -b cookies.txt -d "csrfmiddlewaretoken=ztybzJ2LWA97QEQS4wutPl1RL8zCY7lK" -d "email=mitch@jmitchellsmith.com" -d "password=capercat" http://localhost:8000/login/
+
+curl -X POST -v -c cookies.txt -b cookies.txt -H "Content-Type:multipart/form-data" -F "csrfmiddlewaretoken=ztybzJ2LWA97QEQS4wutPl1RL8zCY7lK" -F "original_filename=Stories.odt" -F "odtfile=@Stories.odt" http://localhost:8000/api/v1/documents/
+
