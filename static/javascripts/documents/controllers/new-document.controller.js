@@ -31,7 +31,7 @@
           username: Authentication.getAuthenticatedAccount().username
         }
       });
-
+      console.log(vm.odtfile);
       $scope.closeThisDialog();
 
       Documents.create(vm.odtfile).then(createDocumentSuccessFn, createDocumentErrorFn);

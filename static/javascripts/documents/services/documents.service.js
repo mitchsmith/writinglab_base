@@ -45,9 +45,16 @@
     * @returns {Promise}
     * @memberOf writinglab.documents.services.Documents
     */
-    function create(original_filename, odtfile) {
-      return $http.post('/api/v1/documents/', {
-        odtfile: odtfile
+    function create(odtfile) {
+      /*var fr = new FileReader();*/
+      console.log(odtfile);
+      var fd = new FormData();
+      fd.append('odtfile', odtfile.name);
+      console.log(fd);
+      return $http.post('/api/v1/documents/', fd,
+      {
+        transformRequest: angular.identity,
+        headers: {'Content-Type': undefined}
       });
     }
 
