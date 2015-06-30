@@ -26,7 +26,6 @@
     */
     function submit() {
       $rootScope.$broadcast('document.created', {
-        original_filename: vm.original_filename,
         odtfile: vm.odtfile,
         owner: {
           username: Authentication.getAuthenticatedAccount().username
@@ -35,7 +34,7 @@
 
       $scope.closeThisDialog();
 
-      Documents.create(vm.original_filename, vm.odtfile).then(createDocumentSuccessFn, createDocumentErrorFn);
+      Documents.create(vm.odtfile).then(createDocumentSuccessFn, createDocumentErrorFn);
 
 
       /**

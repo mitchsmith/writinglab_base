@@ -9,7 +9,7 @@
     .module('writinglab.documents.services')
     .factory('Documents', Documents);
 
-  Documents.$inject = ['$http', 'upload'];
+  Documents.$inject = ['$http'];
 
   /**
   * @namespace Documents
@@ -46,8 +46,7 @@
     * @memberOf writinglab.documents.services.Documents
     */
     function create(original_filename, odtfile) {
-      return $http.document('/api/v1/documents/', {
-        original_filename: original_filename,
+      return $http.post('/api/v1/documents/', {
         odtfile: odtfile
       });
     }
