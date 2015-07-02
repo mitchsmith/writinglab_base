@@ -1,0 +1,43 @@
+<!doctype=html>
+<html>
+<head>
+<script src="/static/javascripts/jquery-1.11.1.js"></script>
+
+</head>
+<body>
+<form id="testform" method="post" enctype="multipart/form-data" action="/api/v1/documents/">
+<input type="hidden" name="csrfmiddlewaretoken" value="gD2j15HWNHSKSNbTeEzQveDNdUzraG0g">
+<input type="hidden" id="original_filename" name="original_filename">
+<input id="odtfile" name="odtfile" type="file" />
+<button type="submit">Upload</button>
+</form>
+<script>
+$('#odtfile').change(function(event) {
+  console.log($(this)[0].files[0])
+});
+$('#testform').submit(function(event){
+  var upload_url = $(this).attr('action');
+  $('#original_filename').val() || $('#original_filename').val($('#odtfile')[0].files[0].name)
+  var data = new FormData(this);
+  data.append('file[]', $('#odtfile')[0].files[0]);
+  var jqxhr = $.ajax({url: upload_url,
+    data: data,
+    cache: false,
+    contentType: false,
+    processData: false,
+    type: 'POST'
+    });
+  jqxhr.success(function (result) {
+    // Success!
+    console.log('Saved! ' + JSON.stringify(result));
+  });
+  jqxhr.error(function (result) {
+    console.log('We got a big error here.\n' + JSON.stringify(result));
+  });
+  console.log("form submitted!");  // sanity check
+  event.preventDefault();
+});
+</script>
+
+</body>
+</html>
