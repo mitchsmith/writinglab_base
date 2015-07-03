@@ -24,3 +24,15 @@ class DocumentSerializer(serializers.ModelSerializer):
         exclusions = super(DocumentSerializer, self).get_validation_exclusions()
 
         return exclusions + ['owner']
+
+    def create(self, attrs, instance=None):
+        #assert instance is None, 'Cannot update documents with DocumentsSerializer'
+
+        (document_object, created) = Document.objects.get_or_create(
+            owner=attrs.get('owner'),
+            original_filename = attrs.get('original_filename')
+        )
+
+        # You can extend here to work on `document_object` as required - update etc.
+
+        return document_object

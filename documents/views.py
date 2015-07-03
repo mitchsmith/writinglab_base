@@ -28,7 +28,7 @@ class DocumentViewSet(viewsets.ModelViewSet):
 
 class AccountDocumentsViewSet(viewsets.ViewSet):
     """
-    Views for listing, and otherwise dealing with posts associated with a given account.
+    Views for listing, and otherwise dealing with documents associated with a given account.
     """
     queryset = Document.objects.select_related('owner').all()
     serializer_class = DocumentSerializer
