@@ -6,11 +6,3 @@
   ng-dialog="/static/templates/posts/new-post.html"
   ng-dialog-controller="NewPostController as vm"></a>
 
-
-<documents documents="vm.documents" ng-show="vm.documents && vm.documents.length"></documents>
-
-<a class="btn btn-primary btn-fab btn-raised mdi-content-add btn-add-new-document"
-  href="javascript:void(0)"
-  ng-show="vm.isAuthenticated"
-  ng-dialog="/static/templates/documents/new-document.html"
-  ng-dialog-controller="NewDocumentController as vm"></a>
