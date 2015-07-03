@@ -7,8 +7,7 @@ angular
     'writinglab.posts',
     'writinglab.documents',
     'writinglab.utils',
-    'writinglab.profiles',
-    'lr.upload'
+    'writinglab.profiles'
   ]);
 
 angular

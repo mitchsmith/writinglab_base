@@ -28,6 +28,11 @@
       controllerAs: 'vm',
       templateUrl: '/static/templates/layout/index.html'
     })
+    .when('/editor/', {
+      controller: 'EditorController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/layout/editor.html'
+    })
     .when('/:username', {
       controller: 'ProfileController',
       controllerAs: 'vm',
