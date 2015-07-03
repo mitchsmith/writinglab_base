@@ -82,7 +82,7 @@
       */
       function columnMapFn(column) {
         var lengths = column.map(function (element) {
-          return element.content.length;
+          return element.original_filename.length;
         });
 
         return lengths.reduce(sum, 0) * column.length;
@@ -119,7 +119,6 @@
 
         for (var i = 0; i < current.length; ++i) {
           var column = approximateShortestColumn();
-
           vm.columns[column].push(current[i]);
         }
       }

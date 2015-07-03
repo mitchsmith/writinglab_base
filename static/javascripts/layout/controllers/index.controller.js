@@ -9,12 +9,12 @@
     .module('writinglab.layout.controllers')
     .controller('IndexController', IndexController);
 
-  IndexController.$inject = ['$scope', 'Authentication', 'Posts', 'Documents', 'Snackbar', 'upload'];
+  IndexController.$inject = ['$scope', 'Authentication', 'Posts', 'Documents', 'Snackbar'];
 
   /**
   * @namespace IndexController
   */
-  function IndexController($scope, Authentication, Posts, Documents, Snackbar, upload) {
+  function IndexController($scope, Authentication, Posts, Documents, Snackbar) {
     var vm = this;
 
     vm.isAuthenticated = Authentication.isAuthenticated();
@@ -40,6 +40,15 @@
 
       $scope.$on('post.created.error', function () {
         vm.posts.shift();
+      });
+
+      /** Listener for document.created **/
+      $scope.$on('document.created', function (event, document) {
+        vm.documents.unshift(document);
+      });
+
+      $scope.$on('document.created.error', function () {
+        vm.document.shift();
       });
 
 

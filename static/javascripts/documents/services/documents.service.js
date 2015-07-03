@@ -46,10 +46,9 @@
     * @memberOf writinglab.documents.services.Documents
     */
     function create(odtfile) {
-      /*var fr = new FileReader();*/
-      console.log(odtfile);
       var fd = new FormData();
-      fd.append('odtfile', odtfile.name);
+      fd.append('original_filename', odtfile.name);
+      fd.append('odtfile', odtfile);
       console.log(fd);
       return $http.post('/api/v1/documents/', fd,
       {

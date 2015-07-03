@@ -7,18 +7,18 @@
 
   angular
     .module('writinglab.documents.directives')
-    .directive('documentfile', ['$parse'], document_file);
+    .directive('documentfile', document_file);
 
   /**
   * @namespace Document
   */
-  function document_file($parse) {
+  function document_file() {
     /**
     * @name directive
     * @desc The directive to be returned
     * @memberOf writinglab.documents.directives.Document
     */
-    /*var directive = {
+    var directive = {
       restrict: 'E',
       template: '<input type="file" />',
       replace: true,
@@ -31,19 +31,6 @@
             }
             element.bind('change', listener);
         }
-    };*/
-    var directive = {
-      restrict: 'A',
-      link: function(scope, element, attrs) {
-        var model = $parse(attrs.fileModel);
-        var modelSetter = model.assign;
-
-        element.bind('change', function(){
-          scope.$apply(function(){
-            modelSetter(scope, element[0].files[0]);
-          });
-        });
-      }
     };
 
     return directive;

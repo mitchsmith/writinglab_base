@@ -9,12 +9,12 @@
     .module('writinglab.documents.controllers')
     .controller('NewDocumentController', NewDocumentController);
 
-  NewDocumentController.$inject = ['$rootScope', '$scope', 'Authentication', 'Snackbar', 'Documents', 'upload'];
+  NewDocumentController.$inject = ['$rootScope', '$scope', 'Authentication', 'Snackbar', 'Documents'];
 
   /**
   * @namespace NewDocumentController
   */
-  function NewDocumentController($rootScope, $scope, Authentication, Snackbar, Documents, upload) {
+  function NewDocumentController($rootScope, $scope, Authentication, Snackbar, Documents) {
     var vm = this;
 
     vm.submit = submit;

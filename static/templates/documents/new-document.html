@@ -1,4 +1,4 @@
-<form role="form" ng-submit="vm.submit()">
+<form id="new-documnet-form" role="form" ng-submit="vm.submit()">
   <div class="form-group">
 
     <label for="document__odtfile">Choose a file to upload</label>
@@ -8,11 +8,11 @@
       id="document__odtfile"
       placeholder="Choose a file"
       ng-model="vm.odtfile" -->
-      <input type="file" documentfile
+      <documentfile type="file"
         name="odtfile"
         class="form-control"
         id="document__odtfile"
-        ng-model="vm.odtfile" />
+        ng-model="vm.odtfile"></documentfile>
   </div>
 
   <div class="form-group">
