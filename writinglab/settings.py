@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+SITE_ID = 1
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -36,13 +37,22 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'debug_toolbar',
     'autoslug',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'rest_auth.registration',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.twitter',
     'compressor',
-    'authentication',
-    'posts',
-    'documents',
+    # 'authentication'
+    # 'posts',
+    # 'documents',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,11 +65,23 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    # Required by `allauth` template tags
+    'django.core.context_processors.request',
+    # `allauth` specific context processors
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
+)
+
 ROOT_URLCONF = 'writinglab.urls'
 
 WSGI_APPLICATION = 'writinglab.wsgi.application'
 
-AUTH_USER_MODEL = 'authentication.Account'
+# AUTH_USER_MODEL = 'authentication.Account'
+
+# Registration
+# ACCOUNT_ACTIVATION_DAYS = 1
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -106,6 +128,14 @@ COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
+)
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 REST_FRAMEWORK = {

@@ -1,10 +1,18 @@
 import json
 from rest_framework import permissions, status, views, viewsets
 from rest_framework.response import Response
+from django.core.mail import send_mail
+from django.contrib.sites.models import Site
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import Group
 from authentication.models import Account
 from authentication.permissions import IsAccountOwner
 from authentication.serializers import AccountSerializer
+from registration import signals
+from registration.models import RegistrationProfile
+
+# from registration.backends.default.views import RegistrationView, ActivationView
+# from registration.forms import RegistrationFormUniqueEmail
 
 
 class AccountViewSet(viewsets.ModelViewSet):
