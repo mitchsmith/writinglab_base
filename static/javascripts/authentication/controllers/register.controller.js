@@ -44,7 +44,7 @@
     * @memberOf writinglab.authentication.services.Authentication
     */
     function register(email, password, username) {
-      return $http.post('/api/v1/accounts/', {
+      return $http.post('/api/v1/accounts/registation/', {
         username: username,
         password: password,
         email: email
@@ -55,7 +55,7 @@
       * @desc Log the new user in
       */
       function registerSuccessFn(data, status, headers, config) {
-        Authentication.login(email, password);
+        Authentication.login(username, password);
       }
 
       /**

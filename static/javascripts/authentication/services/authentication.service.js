@@ -44,7 +44,7 @@
     * @memberOf writinglab.authentication.services.Authentication
     */
     function register(email, password, username) {
-      return $http.post('/api/v1/accounts/', {
+      return $http.post('/api/v1/accounts/registration/', {
         username: username,
         password: password,
         email: email
@@ -59,9 +59,9 @@
      * @returns {Promise}
      * @memberOf writinglab.authentication.services.Authentication
      */
-    function login(email, password) {
-      return $http.post('/api/v1/auth/login/', {
-        email: email, password: password
+    function login(username, password) {
+      return $http.post('/api/v1/accounts/login/', {
+        username: username, password: password
       }).then(loginSuccessFn, loginErrorFn);
 
       /**
@@ -79,7 +79,7 @@
        * @desc Log "Epic failure!" to the console
        */
       function loginErrorFn(data, status, headers, config) {
-        console.error('Epic failure!');
+        console.error('Epic failure in authentication service!');
       }
     }
 
@@ -90,7 +90,7 @@
      * @memberOf writinglab.authentication.services.Authentication
      */
     function logout() {
-      return $http.post('/api/v1/auth/logout/')
+      return $http.post('/api/v1/accounts/logout/')
         .then(logoutSuccessFn, logoutErrorFn);
 
       /**
@@ -108,7 +108,7 @@
        * @desc Log "Epic failure!" to the console
        */
       function logoutErrorFn(data, status, headers, config) {
-        console.error('Epic failure!');
+        console.error('Epic failure in authentication service!');
       }
     }
 
