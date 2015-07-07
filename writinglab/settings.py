@@ -25,9 +25,6 @@ DEBUG = os.environ.get('DEBUG', True)
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -50,7 +47,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.twitter',
     'compressor',
-    # 'authentication'
+    'authentication'
     # 'posts',
     # 'documents',
 )
@@ -78,7 +75,7 @@ ROOT_URLCONF = 'writinglab.urls'
 
 WSGI_APPLICATION = 'writinglab.wsgi.application'
 
-# AUTH_USER_MODEL = 'authentication.Account'
+AUTH_USER_MODEL = 'authentication.Account'
 
 # Registration
 # ACCOUNT_ACTIVATION_DAYS = 1
