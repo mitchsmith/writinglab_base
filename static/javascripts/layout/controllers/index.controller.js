@@ -18,8 +18,8 @@
     var vm = this;
 
     vm.isAuthenticated = Authentication.isAuthenticated();
-    vm.posts = [];
-    vm.documents = []
+    /*vm.posts = [];
+    vm.documents = []*/
 
     activate();
 
@@ -29,27 +29,28 @@
     * @memberOf writinglab.layout.controllers.IndexController
     */
     function activate() {
-      Posts.all().then(postsSuccessFn, postsErrorFn);
+      /*Posts.all().then(postsSuccessFn, postsErrorFn);
 
-      Documents.all().then(documentsSuccessFn, documentsErrorFn);
+      Documents.all().then(documentsSuccessFn, documentsErrorFn);*/
+      console.log('Index controller activated.')
 
       /** Listener for post.created **/
-      $scope.$on('post.created', function (event, post) {
+     /* $scope.$on('post.created', function (event, post) {
         vm.posts.unshift(post);
-      });
+      });*/
 
-      $scope.$on('post.created.error', function () {
+      /*$scope.$on('post.created.error', function () {
         vm.posts.shift();
-      });
+      });*/
 
       /** Listener for document.created **/
-      $scope.$on('document.created', function (event, document) {
+      /*$scope.$on('document.created', function (event, document) {
         vm.documents.unshift(document);
-      });
+      });*/
 
-      $scope.$on('document.created.error', function () {
+/*      $scope.$on('document.created.error', function () {
         vm.document.shift();
-      });
+      });*/
 
 
       /**

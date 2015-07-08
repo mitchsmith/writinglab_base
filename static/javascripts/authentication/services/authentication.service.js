@@ -45,9 +45,9 @@
     */
     function register(email, password, username) {
       return $http.post('/api/v1/accounts/registration/', {
-        username: username,
+        email: email,
         password: password,
-        email: email
+        username: username
       });
     }
 
@@ -69,6 +69,8 @@
        * @desc Set the authenticated account and redirect to index
        */
       function loginSuccessFn(data, status, headers, config) {
+        console.log(JSON.stringify(data));
+
         Authentication.setAuthenticatedAccount(data.data);
 
         window.location = '/';

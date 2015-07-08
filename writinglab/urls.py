@@ -3,8 +3,8 @@ from django.contrib import admin
 from writinglab.views import IndexView, FacebookLogin
 #from rest_framework_nested import routers
 # from authentication.views import AccountViewSet, LoginView, LogoutView
-from posts.views import AccountPostsViewSet, PostViewSet
-from documents.views import AccountDocumentsViewSet, DocumentViewSet
+# from posts.views import AccountPostsViewSet, PostViewSet
+# from documents.views import AccountDocumentsViewSet, DocumentViewSet
 
 #router = routers.SimpleRouter()
 # router.register(r'accounts', AccountViewSet)
@@ -23,10 +23,10 @@ urlpatterns = patterns(
     url(r'^api/v1/accounts/', include('rest_auth.urls')),
     url(r'^api/v1/accounts/registration/', include('rest_auth.registration.urls')),
     url(r'^api/v1/accounts/facebook/$', FacebookLogin.as_view(), name='fb_login'),
-    url(r'^api/v1/accounts/user/posts/', AccountPostsViewSet),
-    url(r'^api/v1/accounts/user/documents/', AccountDocumentsViewSet),
-    url(r'^api/v1/accounts/posts/', PostViewSet),
-    url(r'^api/v1/accounts/documents/', DocumentViewSet),
+    # url(r'^api/v1/accounts/user/posts/', AccountPostsViewSet),
+    # url(r'^api/v1/accounts/user/documents/', AccountDocumentsViewSet),
+    # url(r'^api/v1/accounts/posts/', PostViewSet),
+    # url(r'^api/v1/accounts/documents/', DocumentViewSet),
 
     # url(r'^api/v1/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),

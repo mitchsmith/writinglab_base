@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.twitter',
     'compressor',
-    'authentication'
+    'authentication',
     # 'posts',
     # 'documents',
 )
@@ -146,3 +146,12 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
+
+
+# Email configureation
+EMAIL_HOST = 'mail.triviumcooperative.org'
+EMAIL_HOST_USER = 'no-reply@triviumcooperative.org'
+EMAIL_HOST_PASSWORD = 'uj9^qTa2' 
+DEFAULT_FROM_EMAIL = 'no-reply@triviumcooperative.org'
+SERVER_EMAIL = 'no-reply@triviumcooperative.org'
+EMAIL_USE_TLS = True

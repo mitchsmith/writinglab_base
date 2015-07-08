@@ -15,12 +15,13 @@
   * @namespace RegisterController
   */
   function RegisterController($location, $scope, Authentication) {
-    activate();
 
     /* this is a ViewModel */
     var vm = this;
 
     vm.register = register;
+
+    activate();
 
     /**
      * @name activate
@@ -43,12 +44,15 @@
     * @returns {Promise}
     * @memberOf writinglab.authentication.services.Authentication
     */
-    function register(email, password, username) {
+    /*function register(email, password, username) {
       return $http.post('/api/v1/accounts/registation/', {
         username: username,
         password: password,
         email: email
-      }).then(registerSuccessFn, registerErrorFn);
+      }).then(registerSuccessFn, registerErrorFn);*/
+    function register() {
+      Authentication.register(vm.email, vm.password, vm.username);
+    }
 
       /**
       * @name registerSuccessFn
@@ -66,5 +70,4 @@
         console.error('Epic failure!');
       }
     }
-  }
 })();
